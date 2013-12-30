@@ -98,6 +98,21 @@ class Color implements ColorInterface
         $this->r = $r;
     }
 
+    /**
+     * @param bool $include_parentheses
+     *
+     * @return string
+     */
+    public function getRGB($include_parentheses = true)
+    {
+        $c = array();
+        $c['r'] = $this->getR();
+        $c['g'] = $this->getG();
+        $c['b'] = $this->getB();
+
+        return ($include_parentheses ? '(' : '') . implode(', ', $c) . ($include_parentheses ? ')' : '');
+    }
+
     public function toHex($include_hash = true)
     {
         $c = array();
